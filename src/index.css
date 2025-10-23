@@ -1,0 +1,221 @@
+:root {
+  --main-light-bg-color: hsl(152, 9%, 61%);
+  --main-light-color: hsl(173, 16%, 21%);
+  --main-light-color-transparent: hsla(173, 16%, 21%, 0.03);
+  --main-light-accent: hsl(21, 39%, 38%);
+  --main-dark-bg-color: hsl(173, 16%, 21%);
+  --main-dark-color: hsl(50, 12%, 69%);
+  --main-dark-color-transparent: hsla(50, 12%, 69%, 0.05);
+  --main-dark-accent: hsl(21, 39%, 38%);
+  --highlight-color: violet;
+
+  font-family: "Kanit", sans-serif;
+  font-weight: 500;
+  font-size: calc(1rem + 1vw);
+
+  color-scheme: light dark;
+  color: var(--main-dark-color);
+  background-color: var(--main-dark-bg-color);
+  background-image: linear-gradient(
+      var(--main-dark-color-transparent) 2px,
+      transparent 2px
+    ),
+    linear-gradient(
+      90deg,
+      var(--main-dark-color-transparent) 2px,
+      transparent 2px
+    );
+  background-size: 10px 10px;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1, span {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+a,
+button {
+  font-size: 1.5em;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--main-dark-accent);
+  border: 0.25rem solid var(--main-dark-accent);
+  padding: 0.25rem 0.75rem;
+  text-decoration: none;
+  background-color: var(--main-dark-color-transparent);
+  outline: .01rem solid transparent;
+  transition: outline 300ms;
+  cursor: pointer;
+}
+a:disabled, button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+a span,
+button span {
+  display: inline-block;
+  scale: 1;
+  transition: scale 300ms;
+}
+
+a:hover, button:hover {
+  filter: hue-rotate(-45deg);
+}
+
+a:hover span,
+button:hover span {
+  scale: 1.1;
+}
+
+a:active span,
+button:active span {
+  scale: .9;
+}
+
+a:focus,
+button:focus {
+  outline: .25rem var(--highlight-color) solid;
+}
+
+
+
+.fit-container {
+  width: fit-content;
+  margin: auto;
+}
+
+.full {
+  width: 100%;
+}
+.row {
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.end {
+  justify-content: flex-end;
+}
+.card {
+  position: relative;
+  width: clamp(250px, 50vh, min(500px, 80vw));
+  height: clamp(250px, 50vh, min(500px, 80vw));
+  aspect-ratio: 1 / 1;
+  background-color: var(--main-dark-color);
+  /* color: var(--main-dark-bg-color); */
+  color: black;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card > p:first-child {
+  position: absolute;
+  right: .25rem;
+  top: -.25rem;
+  font-size: .5em;
+}
+.card > p:nth-child(2) {
+  position: absolute;
+  left: .25rem;
+  top: -.25rem;
+  font-size: .5em;
+}
+.card div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card div .bar {
+    background-color: black;
+    height: .25rem;
+    width: 100%;
+}
+
+.card div p{
+  align-self: end;
+}
+
+.operation {
+  margin-right: 1em;
+}
+
+.activeResults {
+  height: 50px;
+  width: 250px;
+  border-radius: 25px;
+  background-color: var(--main-dark-color);
+  margin-bottom: .5rem;
+  overflow:hidden;
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+}
+.activeResults img {
+  position: absolute;
+  height: 44px;
+  width: 44px;
+  margin: 3px;
+  animation: grow .5s cubic-bezier( 0.25, 0, 0.6, 1.25 );
+  transition: right .3s linear;
+}
+.activeResults .incorrect {
+  transform: rotate(45deg);
+}
+@keyframes grow {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--main-light-color);
+    background-color: var(--main-light-bg-color);
+    background-image: linear-gradient(
+        var(--main-light-color-transparent) 2px,
+        transparent 2px
+      ),
+      linear-gradient(
+        90deg,
+        var(--main-light-color-transparent) 2px,
+        transparent 2px
+      );
+  }
+  a,
+  button {
+    color: var(--main-light-accent);
+    border-color: var(--main-light-accent);
+    background-color: var(--main-light-color-transparent);
+  }
+  .activeResults {
+  background-color: var(--main-light-color);
+  }
+  .card {
+  background-color: var(--main-light-color);
+  color: white;
+}
+.card div .bar {
+  background-color: white;
+}
+}
