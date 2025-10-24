@@ -1,0 +1,24 @@
+.num-pad, .atm {
+    margin-top: .25rem;
+    display: grid;
+}
+.num-pad button, .atm button {
+    margin: .25rem
+}
+.num-pad {
+    display: grid;
+    grid-template-areas:
+  "h i j n"
+  "e f g m"
+  "b c d l"
+  "a a k l";
+}
+
+.atm {
+    display: grid;
+    grid-template-areas:
+  "b c d n"
+  "e f g m"
+  "h i j l"
+  ". a k l";
+}

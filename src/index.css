@@ -2,11 +2,11 @@
   --main-light-bg-color: hsl(152, 9%, 61%);
   --main-light-color: hsl(173, 16%, 21%);
   --main-light-color-transparent: hsla(173, 16%, 21%, 0.03);
-  --main-light-accent: hsl(21, 39%, 38%);
+  --main-light-accent: hsl(30, 100%, 60%);
   --main-dark-bg-color: hsl(173, 16%, 21%);
   --main-dark-color: hsl(50, 12%, 69%);
   --main-dark-color-transparent: hsla(50, 12%, 69%, 0.05);
-  --main-dark-accent: hsl(21, 39%, 38%);
+  --main-dark-accent: hsl(60, 100%, 71%);
   --highlight-color: violet;
 
   font-family: "Kanit", sans-serif;
@@ -39,7 +39,9 @@ main {
   align-items: center;
 }
 
-h1, span {
+h1,
+span,
+details {
   text-align: center;
 }
 
@@ -57,11 +59,12 @@ button {
   padding: 0.25rem 0.75rem;
   text-decoration: none;
   background-color: var(--main-dark-color-transparent);
-  outline: .01rem solid transparent;
+  outline: 0.01rem solid transparent;
   transition: outline 300ms;
   cursor: pointer;
 }
-a:disabled, button:disabled {
+a:disabled,
+button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -72,8 +75,16 @@ button span {
   transition: scale 300ms;
 }
 
-a:hover, button:hover {
-  filter: hue-rotate(-45deg);
+summary {
+  color: var(--main-dark-accent);
+  cursor: pointer;
+  z-index: 10;
+}
+
+a:hover,
+button:hover,
+summary:hover {
+  filter: hue-rotate(45deg);
 }
 
 a:hover span,
@@ -83,15 +94,19 @@ button:hover span {
 
 a:active span,
 button:active span {
-  scale: .9;
+  scale: 0.9;
 }
 
 a:focus,
-button:focus {
-  outline: .25rem var(--highlight-color) solid;
+button:focus,
+summary:focus {
+  outline: 0.25rem var(--highlight-color) solid;
 }
 
-
+.dashed-under-border {
+  border-bottom: dashed 0.25rem;
+  padding-bottom: 0.25rem;
+}
 
 .fit-container {
   width: fit-content;
@@ -102,12 +117,24 @@ button:focus {
   width: 100%;
 }
 .row {
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
+.col {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+}
 .end {
   justify-content: flex-end;
+}
+.between {
+  justify-content: space-between;
+}
+.margin-right {
+  margin-right: 1em;
 }
 .card {
   position: relative;
@@ -124,15 +151,15 @@ button:focus {
 }
 .card > p:first-child {
   position: absolute;
-  right: .25rem;
-  top: -.25rem;
-  font-size: .5em;
+  right: 0.25rem;
+  top: -0.25rem;
+  font-size: 0.5em;
 }
 .card > p:nth-child(2) {
   position: absolute;
-  left: .25rem;
-  top: -.25rem;
-  font-size: .5em;
+  left: 0.25rem;
+  top: -0.25rem;
+  font-size: 0.5em;
 }
 .card div {
   display: flex;
@@ -142,17 +169,22 @@ button:focus {
 }
 
 .card div .bar {
-    background-color: black;
-    height: .25rem;
-    width: 100%;
+  background-color: black;
+  height: 0.25rem;
+  width: 120%;
 }
 
-.card div p{
+.card div p {
   align-self: end;
 }
 
+.card-contents {
+  line-height: 1.1;
+}
+
 .operation {
-  margin-right: 1em;
+  display: inline-block;
+  scale: 1.5;
 }
 
 .activeResults {
@@ -160,8 +192,8 @@ button:focus {
   width: 250px;
   border-radius: 25px;
   background-color: var(--main-dark-color);
-  margin-bottom: .5rem;
-  overflow:hidden;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
   display: flex;
   flex-direction: row-reverse;
   position: relative;
@@ -171,12 +203,36 @@ button:focus {
   height: 44px;
   width: 44px;
   margin: 3px;
-  animation: grow .5s cubic-bezier( 0.25, 0, 0.6, 1.25 );
-  transition: right .3s linear;
+  animation: grow 0.5s cubic-bezier(0.25, 0, 0.6, 1.25);
+  transition: right 0.3s linear;
 }
 .activeResults .incorrect {
   transform: rotate(45deg);
 }
+.correction {
+  color: var(--main-dark-accent);
+}
+
+.push-right:has(.caret) {
+  position: relative;
+  left: 0.5rem;
+}
+
+.caret {
+  color: var(--highlight-color);
+  animation: flashing 1s ease-in-out infinite;
+}
+.confetti {
+  max-width: none;
+  opacity: .5;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
 @keyframes grow {
   from {
     scale: 0;
@@ -185,8 +241,17 @@ button:focus {
     scale: 1;
   }
 }
-
-
+@keyframes flashing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -203,19 +268,29 @@ button:focus {
       );
   }
   a,
-  button {
+  button{
     color: var(--main-light-accent);
     border-color: var(--main-light-accent);
     background-color: var(--main-light-color-transparent);
   }
+  summary {
+    color: var(--main-light-accent);
+  }
   .activeResults {
-  background-color: var(--main-light-color);
+    background-color: var(--main-light-color);
+  }
+  .correction {
+    color: var(--main-light-accent);
   }
   .card {
-  background-color: var(--main-light-color);
-  color: white;
-}
-.card div .bar {
-  background-color: white;
-}
+    background-color: var(--main-light-color);
+    color: white;
+  }
+  .card div .bar {
+    background-color: white;
+  }
+  a:hover,
+  button:hover {
+    filter: hue-rotate(-45deg);
+  }
 }
