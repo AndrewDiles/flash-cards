@@ -6,6 +6,7 @@
   "overrides": {
     "rollup": "4.15.0"
   },
+  "homepage": "https://andrewdiles.github.io/flash-cards",
   "scripts": {
     "dev": "vite",
     "predeploy": "npm run build",
