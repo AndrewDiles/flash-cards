@@ -134,7 +134,7 @@ const ManageSettings = ({
       >
         <span>restore defaults</span>
       </button>
-      <Link to="/">
+      <Link to="/flash-cards">
         <span>back</span>
       </Link>
     </main>

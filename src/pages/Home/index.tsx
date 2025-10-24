@@ -8,7 +8,7 @@ const Home = () => {
       <h1>Flash Cards</h1>
       {NAV_OPTIONS.map((option) => {
         return (
-          <Link to={option} key={option}>
+          <Link to={`/flash-cards/${option}`} key={option}>
             <span>{option}</span>
           </Link>
         );

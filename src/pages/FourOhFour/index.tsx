@@ -11,7 +11,7 @@ const FourOhFour = () => {
       <p>
         Let's get you back. 🤪
       </p>
-      <Link to="/"><span>home</span></Link>
+      <Link to="/flash-cards"><span>home</span></Link>
     </main>
   );
 };

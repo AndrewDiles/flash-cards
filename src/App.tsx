@@ -16,10 +16,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/exercises" element={<Exercises/>} />
-        <Route path="/multiplication" element={<Multiplication settings={settings}/>}/>
-        <Route path="/settings" element={<ManageSettings settings={settings} updateSettings={updateSettings} resetSettings={resetSettings}/>} />
+        <Route path="/flash-cards" element={<Home />} />
+        <Route path="/flash-cards/exercises" element={<Exercises/>} />
+        <Route path="/flash-cards/multiplication" element={<Multiplication settings={settings}/>}/>
+        <Route path="/flash-cards/settings" element={<ManageSettings settings={settings} updateSettings={updateSettings} resetSettings={resetSettings}/>} />
         <Route path="*" element={<FourOhFour />} />
       </Routes>
     </>

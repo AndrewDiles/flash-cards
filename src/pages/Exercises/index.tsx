@@ -10,7 +10,7 @@ const Exercises = () => {
   return (
     <main>
       <h1>Select Type</h1>
-      <Link to="/multiplication">
+      <Link to="/flash-cards/multiplication">
         {multiplicationImageLoaded === "error" && <span>multiplication</span>}
         {multiplicationImageLoaded !== "error" && (
           <>
@@ -30,7 +30,7 @@ const Exercises = () => {
           </>
         )}
       </Link>
-      <Link to="/">
+      <Link to="/flash-cards">
         <span>back</span>
       </Link>
     </main>
