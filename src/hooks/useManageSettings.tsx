@@ -17,8 +17,6 @@ const DEFAULT_SETTINGS: Settings = {
 
 const useManageSettings = () => {
   const [settings, setSettings] = useState<Settings>({ ...DEFAULT_SETTINGS });
-  console.log({settings});
-  
 
   useEffect(() => {
     const foundSettings = window.localStorage.getItem(STORAGE_KEY);

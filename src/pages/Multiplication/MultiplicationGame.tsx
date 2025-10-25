@@ -76,7 +76,7 @@ const MultiplicationGame = ({
 
   return (
     <main>
-      <h1>Multiplication</h1>
+      {/* <h1>Multiplication</h1> */}
       <ActiveResults
         results={exerciseData.enteredValues.map(
           (entry: number, index: number) => {

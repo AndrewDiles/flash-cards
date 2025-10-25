@@ -9,7 +9,6 @@ const generateFactors = (
   yMax: number,
   quantity: number
 ): [number, number][] => {
-  console.log({quantity});
   
   const factors: [number, number][] = [];
 

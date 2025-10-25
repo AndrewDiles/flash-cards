@@ -35,14 +35,23 @@ const GameComplete = ({
         maxCardNumber /
         10
     ) / 100;
-
-  console.log(exerciseData.times);
+  
+    const percentage : number = Math.round((100 * correctCount) / maxCardNumber);
+    let message : string = "Keep at it!";
+    if (percentage === 100) {
+      message = "Perfect!"
+    } else if (percentage > 85) {
+      message = "Excellent work!"
+    } else if (percentage > 65) {
+      message = "Great job."
+    }
 
   return (
     <>
       <h1>Results</h1>
       {correctCount === maxCardNumber && <img className="confetti" alt="" src={confetti}/>}
-      <p>{Math.round((100 * correctCount) / maxCardNumber)} %</p>
+      <p className="large-top-margin">{message}</p>
+      <p>{percentage} %</p>
       <p>
         {correctCount} / {maxCardNumber} correct
       </p>
