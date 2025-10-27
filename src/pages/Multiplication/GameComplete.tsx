@@ -81,7 +81,7 @@ const GameComplete = ({
       <button type="button" onClick={restartGame}>
         <span>again</span>
       </button>
-      <Link to="/flash-cards">
+      <Link to="/flash-cards/">
         <span>exit</span>
       </Link>
     </>

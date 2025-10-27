@@ -37,7 +37,7 @@ const OpeningPage = ({
       <button type="button" onClick={handleClick}>
         <span>start</span>
       </button>
-      <Link to="/flash-cards">
+      <Link to="/flash-cards/">
         <span>exit</span>
       </Link>
     </main>

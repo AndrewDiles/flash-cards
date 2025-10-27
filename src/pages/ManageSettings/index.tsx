@@ -82,7 +82,7 @@ const ManageSettings = ({
         </div>
       </section>
 
-      <section className="full col end dashed-under-border">
+      <section className="full col end large-bottom-margin">
         Layout
         <div className="full row between">
           <p>
@@ -122,7 +122,7 @@ const ManageSettings = ({
             </button>
           </p>
         </div>
-        <p>Sample Layout</p>
+        {/* <p>Sample Layout</p> */}
         <SampleNumberEntry layout={settings.layout} />
       </section>
 
@@ -134,7 +134,7 @@ const ManageSettings = ({
       >
         <span>restore defaults</span>
       </button>
-      <Link to="/flash-cards">
+      <Link to="/flash-cards/">
         <span>back</span>
       </Link>
     </main>

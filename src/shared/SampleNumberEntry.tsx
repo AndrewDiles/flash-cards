@@ -19,9 +19,10 @@ const BUTTONS = [
 
 const SampleNumberEntry = ({ layout }: { layout: string }) => {
   return (
-    <section className={layout}>
+    <section className={layout} style={{ opacity: 0.5 }}>
+      <h3 className="sample-text">Sample Layout</h3>
       {BUTTONS.map(({ content, gridArea }) => (
-        <button key={content} style={{ gridArea }} type="button">
+        <button key={content} tabIndex={-1} style={{ gridArea }} type="button">
           <span>{content}</span>
         </button>
       ))}

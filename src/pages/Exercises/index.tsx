@@ -30,7 +30,7 @@ const Exercises = () => {
           </>
         )}
       </Link>
-      <Link to="/flash-cards">
+      <Link to="/flash-cards/">
         <span>back</span>
       </Link>
     </main>
