@@ -1,3 +1,5 @@
+import PaperTexture from "./PaperTexture";
+
 const Card = ({
   cardNumber,
   maxCardNumber,
@@ -32,6 +34,7 @@ const Card = ({
           {enteredValue}{!disabled && <span className="caret">|</span>}
         </p>
       </div>
+      <PaperTexture/>
     </div>
   );
 };

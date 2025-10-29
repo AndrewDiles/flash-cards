@@ -26,11 +26,7 @@
       var(--dark-black-transparent) 2px,
       transparent 2px
     ),
-    linear-gradient(
-      90deg,
-      var(--dark-black-transparent) 2px,
-      transparent 2px
-    );
+    linear-gradient(90deg, var(--dark-black-transparent) 2px, transparent 2px);
   background-size: 10px 10px;
 
   font-synthesis: none;
@@ -83,11 +79,11 @@ button span {
 
 summary {
   width: fit-content;
-  padding: 0 .5em;
+  padding: 0 0.5em;
   margin-left: auto;
   margin-right: auto;
   color: var(--dark-accent);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   z-index: 10;
 }
@@ -118,9 +114,9 @@ summary:focus {
   border-bottom: dashed 0.25rem;
   padding-bottom: 0.25rem;
 } */
- .large-bottom-margin {
+.large-bottom-margin {
   margin-bottom: 2.75rem;
- }
+}
 
 .fit-container {
   width: fit-content;
@@ -155,7 +151,7 @@ summary:focus {
 }
 .large-top-margin {
   margin-top: -2rem;
-  transition: margin .3s ease-in-out;
+  transition: margin 0.3s ease-in-out;
 }
 .sample-text {
   position: absolute;
@@ -181,6 +177,7 @@ summary:focus {
 
 .card {
   position: relative;
+  overflow: hidden;
   width: clamp(250px, 50vh, min(500px, 80vw));
   height: clamp(250px, 50vh, min(500px, 80vw));
   aspect-ratio: 1 / 1;
@@ -191,6 +188,15 @@ summary:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.paper-texture {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  transform: scaleX(1.5);
+  opacity: 0.08;
 }
 .card > p:first-child {
   position: absolute;
@@ -267,7 +273,7 @@ summary:focus {
 }
 .confetti {
   max-width: none;
-  opacity: .5;
+  opacity: 0.5;
   position: absolute;
   width: 100vw;
   height: 100vh;
@@ -311,7 +317,7 @@ summary:focus {
       );
   }
   a,
-  button{
+  button {
     color: var(--light-accent);
     border-color: var(--light-accent);
     background-color: var(--light-white-transparent);
@@ -328,6 +334,9 @@ summary:focus {
   .card {
     background-color: var(--light-card-color);
     color: black;
+  }
+  .paper-texture {
+    opacity: 0.25;
   }
   .card div .bar {
     background-color: black;
